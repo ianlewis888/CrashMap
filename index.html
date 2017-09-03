@@ -45,10 +45,10 @@
       border-bottom-width: 3px;
     }
     #map-container {
-        width: 95%;
-        height: 70%;
-        margin-left: 2.5%;
-        margin-right: 2.5%;
+      width: 95%;
+      height: 70%;
+      margin-left: 2.5%;
+      margin-right: 2.5%;
     }
 
     .d3-tip {
@@ -82,7 +82,7 @@
     }
     #description-container {
       margin: 40px;
-      margin-top: 15px;
+      margin-top: 30px;
       padding: 15px;
       font-family: 'Roboto', sans-serif;
       line-height: 1.7em;
@@ -92,16 +92,16 @@
       border-bottom-style: solid;
     }
     #search-box {
-      display: none;
+      /*display: none;*/
       font-size: .9em;
-      width: 400px;
+      width: 300px;
       line-height: 1.7em;
       padding-left: 10px;
       border: 1px solid #ccc;
       border-radius: 2px;
     }
     #close-button {
-      display: none;
+      /*display: none;*/
       margin-left: 10px;
       color: #8F9199;
     }
@@ -142,7 +142,7 @@
     var mapData = d3.json("world_map.json", createMap),
       projection = d3.geoEquirectangular().scale(210).center([-50,20]),
       menu = d3.select("body").append("div").attr("class","menu"),
-      searchButton = menu.append("i").attr("class", "fa fa-search fa-lg").attr("aria-hidden", "true"),
+      //searchButton = menu.append("i").attr("class", "fa fa-search fa-lg").attr("aria-hidden", "true"),
       searchBox = menu.append("input").attr("id", "search-box").attr("type", "text").attr("placeholder", "Search"),
       //filterButton = menu.append("i").attr("class", "fa fa-filter fa-lg").attr("aria-hidden", "true");
       closeButton = menu.append("i").attr("class", "fa fa-close fa-lg").attr("aria-hidden", "true").attr("id", "close-button");
@@ -153,6 +153,7 @@
         path = d3.geoPath(projection),
         svg = d3.select("#map-container")
             .append("svg")
+            .style("margin-top","15px")
             .attr("width","100%")
             .attr("height","100%"),
         fillColor = "#E5E5E5",
@@ -286,18 +287,18 @@
 
       draw_circles(circles);
 
-      searchButton.on("click", function(){
+      /*searchButton.on("click", function(){
         searchButton.style("display", "none");
-        filterButton.style("display", "none");
+        //filterButton.style("display", "none");
         searchBox.style("display", "inline").node().focus();
         closeButton.style("display", "inline");
-      });
+      });*/
 
       closeButton.on("click", function(){
-        searchButton.style("display", "inline");
-        filterButton.style("display", "inline");
-        searchBox.style("display", "none");
-        closeButton.style("display", "none");
+        //searchButton.style("display", "inline");
+        //filterButton.style("display", "inline");
+        //searchBox.style("display", "none");
+        //closeButton.style("display", "none");
         if (searchBox.node().value!==""){
           searchBox.node().value = "";
           search();
