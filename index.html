@@ -299,6 +299,9 @@
         //filterButton.style("display", "inline");
         //searchBox.style("display", "none");
         //closeButton.style("display", "none");
+        desc_container.html("");
+        desc_container.attr("class", "");
+        d3.select(".active").attr("class", "");
         if (searchBox.node().value!==""){
           searchBox.node().value = "";
           search();
